@@ -12,7 +12,7 @@
 
 我把自己跟一个陪聊机器人聊天的 200 次消息间隔记了下来，画出来是这样：
 
-![消息间隔分布](assets/three-peaks.svg)
+![消息间隔分布](assets/three-peaks.png)
 
 **三个峰，不是两个。** 大致是：
 
@@ -32,7 +32,7 @@ window = clamp(base, 2.5, cap)                 # → 20.0
 
 在真实历史上逐条跑一遍：
 
-![分位数公式 vs human-pace](assets/window.svg)
+![分位数公式 vs human-pace](assets/window.png)
 
 | | 不同取值 | 极差 |
 |---|---|---|

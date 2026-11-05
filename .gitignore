@@ -32,5 +32,7 @@ env/
 pace.db
 pace.db-journal
 
-# Rendered previews (regenerate with examples/make_chart.py)
-assets/_preview*.png
+# Build artifacts
+dist/
+build/
+*.egg-info/

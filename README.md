@@ -12,7 +12,7 @@
 
 I logged 200 real inter-message gaps from a chat companion I run. Here they are:
 
-![Distribution of inter-message gaps](assets/three-peaks.svg)
+![Distribution of inter-message gaps](assets/three-peaks.png)
 
 Three peaks. Not two — three. Roughly:
 
@@ -34,7 +34,7 @@ every time, forever.** The "adaptive" code has a constant for an output.
 
 Run over the real history, step by step:
 
-![Naive formula vs human-pace](assets/window.svg)
+![Naive formula vs human-pace](assets/window.png)
 
 | | distinct values | range |
 |---|---|---|
