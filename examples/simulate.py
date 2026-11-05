@@ -104,7 +104,7 @@ def main() -> None:
         t += g
         final.observe("u", ts=t)
     print("  Final window by sentence ending (same history):")
-    for text in ["", "好的。", "你去吗？", "我今天去了…", "啊"]:
+    for text in ["", "好的", "你去吗？", "我今天下午去了一趟那个…", "啊"]:
         d = final.decide("u", text=text)
         print("    %-16r -> %5.2fs   (%s)" % (text, d.wait, d.reason))
 

@@ -17,7 +17,7 @@ pace = Pace()
 # is reproducible; in a real bot just call observe() without a timestamp.
 messages = [
     (0.0, "在吗？"),
-    (2.1, "我今天去了趟"),
+    (2.1, "我今天下午去了一趟"),
     (3.4, "那个新开的店"),
     (9.0, "人特别多"),
     (11.2, "排了半小时"),

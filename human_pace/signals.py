@@ -5,14 +5,14 @@ can. These rules are deliberately blunt - they are not trying to parse
 language, only to catch the few endings that reliably mean *something*:
 
     "你去吗？"      -> he is waiting for an answer      -> reply fast
-    "好的。"        -> that thought is closed           -> reply fast
-    "我今天去了…"    -> trailing off                    -> keep waiting
-    "还有一点，"     -> comma means more is coming      -> keep waiting
+    "好的"        -> that thought is closed           -> reply fast
+    "我今天下午去了一趟那个…"    -> trailing off                    -> keep waiting
+    "还有个事，"     -> comma means more is coming      -> keep waiting
 
 Each signal carries an absolute cap as well as a multiplier. The multiplier
 scales with the user's own typing pace; the cap prevents a slow typist's
 large base window from leaking into sentences that are plainly finished.
-A slow typist who types "好的。" should get a reply in seconds, not 11.
+A slow typist who types "好的" should get a reply in seconds, not 11.
 """
 
 from __future__ import annotations
@@ -38,6 +38,16 @@ _TRAIL = re.compile(r"(?:…|\.\.\.)\s*$")
 
 # Clearly finished.
 _DONE = re.compile(r"[。！!~～]\s*$")
+
+# Short acknowledgements that are complete on their own, punctuation or not.
+# Real chat almost never writes "好的。" - it writes "好的". Classifying that as
+# an unfinished fragment would add seconds of dead air to one of the most
+# common replies in the language.
+_DONE_WORDS = re.compile(
+    r"^(?:好的|好吧|好|行|行吧|嗯|嗯嗯|哦|噢|对|是的|是|知道了|明白了|懂了"
+    r"|收到|可以|没问题|算了|没事|晚安|早安|早|谢谢|好嘞|得嘞|OK|ok|Ok"
+    r"|笑死|绝了|麻了)[。.!！~～]*\s*$"
+)
 
 # --- absolute caps (seconds) ---
 # A question should not wait long, ever.
@@ -83,7 +93,7 @@ def read_signal(text: str) -> Signal:
     if _OPEN.search(t) or _TRAIL.search(t):
         return Signal(1.45, "sentence not finished", None, False)
 
-    if _DONE.search(t):
+    if _DONE.search(t) or _DONE_WORDS.match(t):
         return Signal(0.60, "sentence finished", DONE_CAP, True)
 
     if len(t) <= SHORT_LEN:

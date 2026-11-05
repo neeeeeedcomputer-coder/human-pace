@@ -24,14 +24,14 @@ def test_question_gets_fastest_reply():
 
 
 def test_period_is_done_and_capped():
-    for text in ["好的。", "行！", "知道了~"]:
+    for text in ["好的", "行", "知道了~"]:
         s = read_signal(text)
         assert s.done is True, text
         assert s.cap == DONE_CAP, text
 
 
 def test_trailing_off_means_keep_waiting():
-    for text in ["我今天去了…", "我今天去了..."]:
+    for text in ["我今天下午去了一趟那个…", "我今天下午去了一趟那个..."]:
         s = read_signal(text)
         assert s.done is False, text
         assert s.mult > 1.0, text
@@ -39,7 +39,7 @@ def test_trailing_off_means_keep_waiting():
 
 
 def test_comma_means_more_coming():
-    for text in ["还有一点，", "我跟你说：", "那个人—"]:
+    for text in ["还有个事，", "我跟你说：", "那个人—"]:
         s = read_signal(text)
         assert s.done is False, text
         assert s.mult > 1.0, text
@@ -58,4 +58,4 @@ def test_long_unpunctuated_reads_as_finished():
 
 
 def test_trailing_whitespace_is_ignored():
-    assert read_signal("好的。   ").reason == read_signal("好的。").reason
+    assert read_signal("好的   ").reason == read_signal("好的").reason

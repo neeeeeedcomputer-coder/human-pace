@@ -2,7 +2,7 @@
 
 **Decide when to reply, based on how the person actually types.**
 
-[![tests](https://img.shields.io/badge/tests-29%20passing-brightgreen)]()
+[![tests](https://img.shields.io/badge/tests-51%20passing-brightgreen)]()
 [![python](https://img.shields.io/badge/python-3.9%2B-blue)]()
 [![license](https://img.shields.io/badge/license-MIT-blue)]()
 
@@ -71,13 +71,13 @@ from "he finished". Punctuation can:
 | ending | reading | effect |
 |---|---|---|
 | `你去吗？` · `行不行` | waiting for an answer | ×0.35, hard cap 2s |
-| `好的。` · `行！` | thought closed | ×0.60, hard cap 4s |
-| `我今天去了…` · `还有一点，` | trailing off | ×1.45, no cap |
+| `好的` · `行` | thought closed | ×0.60, hard cap 4s |
+| `我今天下午去了一趟那个…` · `还有个事，` | trailing off | ×1.45, no cap |
 | `啊` (bare fragment) | ambiguous | ×1.20, cap 8s |
 | long, no punctuation | probably done | ×0.85 |
 
 The caps matter. A slow typist has a large base window, and multiplying it by
-0.6 still produces 11 seconds — but "好的。" is a finished thought regardless
+0.6 still produces 11 seconds — but "好的" is a finished thought regardless
 of how fast its author types. Real people answer it in three seconds.
 
 ## Result on the same history
@@ -85,10 +85,10 @@ of how fast its author types. Real people answer it in three seconds.
 | message | wait |
 |---|---|
 | `你去吗？` | 2.00s |
-| `好的。` | 4.00s |
+| `好的` | 4.00s |
 | `啊` | 8.00s |
 | (no text) | 19.07s |
-| `我今天去了…` | 20.00s |
+| `我今天下午去了一趟那个…` | 20.00s |
 
 An 18-second spread, driven by the message rather than by the clock.
 
@@ -222,7 +222,7 @@ Being explicit, because a library like this is easy to over-trust:
 ## Tests
 
 ```bash
-pytest -q      # 29 passed
+pytest -q      # 51 passed
 ```
 
 Including a regression test for the saturation bug:
@@ -236,7 +236,7 @@ def test_regression_window_does_not_saturate():
     pace = Pace()
     feed(pace, "u1", gaps)
     windows = {pace.window("u1", text=t)
-               for t in ["好的。", "你去吗？", "我今天去了…", "啊"]}
+               for t in ["好的", "你去吗？", "我今天下午去了一趟那个…", "啊"]}
 
     assert len(windows) > 1
 ```

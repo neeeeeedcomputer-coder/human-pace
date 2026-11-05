@@ -5,7 +5,7 @@ The problem
 Every chat bot needs to answer "should I reply now, or is the user still
 typing?". The common solutions are a fixed delay, or "wait until the user
 stops for N seconds". Both fail on the same case: a person who thinks in
-bursts sends "我今天去了..." then pauses, and a fixed 3s delay cuts them off
+bursts sends "我今天下午去了一趟那个..." then pauses, and a fixed 3s delay cuts them off
 mid-thought.
 
 The obvious upgrade - measure the user's typical inter-message gap - has a
@@ -29,8 +29,8 @@ Usage
     from human_pace import Pace
 
     pace = Pace()
-    pace.observe("user_1", text="我今天去了...")   # on every incoming message
-    r = pace.decide("user_1", text="我今天去了...")
+    pace.observe("user_1", text="我今天下午去了一趟那个...")   # on every incoming message
+    r = pace.decide("user_1", text="我今天下午去了一趟那个...")
     if r.done:
         reply()
     else:

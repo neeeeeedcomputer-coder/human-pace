@@ -55,25 +55,25 @@ def test_slow_typer_window_is_bounded_but_not_short():
 
 
 def test_finished_sentence_beats_typing_speed():
-    """A slow typist saying "好的。" must not wait 11 seconds for it."""
+    """A slow typist saying "好的" must not wait 11 seconds for it."""
     p = Pace()
     feed(p, "u1", [14.0, 15.0, 13.5, 16.0, 14.5, 15.5, 13.8, 14.9, 15.1, 14.2])
-    assert p.window("u1", text="好的。") <= 4.0
+    assert p.window("u1", text="好的") <= 4.0
     assert p.window("u1", text="你去吗？") <= 2.0
 
 
 def test_trailing_off_waits_longer_than_finished():
     p = Pace()
     feed(p, "u1", [5.0, 6.0, 5.5, 4.8, 6.2, 5.1, 5.9, 5.3, 5.4, 5.7])
-    open_wait = p.window("u1", text="我今天去了…")
-    done_wait = p.window("u1", text="我今天去了。")
+    open_wait = p.window("u1", text="我今天下午去了一趟那个…")
+    done_wait = p.window("u1", text="我今天下午去了一趟。")
     assert open_wait > done_wait
 
 
 def test_window_is_bounded():
     p = Pace()
     feed(p, "u1", [24.0] * 20)
-    for text in ["", "好的。", "我今天去了…", "啊"]:
+    for text in ["", "好的", "我今天下午去了一趟那个…", "啊"]:
         w = p.window("u1", text=text)
         assert 2.5 <= w <= 20.0, text
     # Questions are allowed below the general floor: answering a direct
@@ -98,7 +98,7 @@ def test_regression_window_does_not_saturate():
     p = Pace()
     feed(p, "u1", gaps)
     windows = {p.window("u1", text=t) for t in
-               ["好的。", "你去吗？", "我今天去了…", "啊"]}
+               ["好的", "你去吗？", "我今天下午去了一趟那个…", "啊"]}
 
     # The naive formula yields one single value for every sentence ending.
     assert naive == pytest.approx(naive)
@@ -145,7 +145,7 @@ def test_summary_shape():
 def test_explain_is_readable():
     p = Pace()
     feed(p, "u1", [5.0, 6.0] * 6)
-    text = p.decide("u1", text="好的。").explain()
+    text = p.decide("u1", text="好的").explain()
     assert "mode=" in text and "wait" in text
 
 
