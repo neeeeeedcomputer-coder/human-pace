@@ -26,8 +26,8 @@ dependencies = []
 dev = ["pytest>=7"]
 
 [project.urls]
-Homepage = "https://github.com/yourname/human-pace"
-Issues = "https://github.com/yourname/human-pace/issues"
+Homepage = "https://github.com/neeeeeedcomputer-coder/human-pace"
+Issues = "https://github.com/neeeeeedcomputer-coder/human-pace/issues"
 
 [tool.setuptools]
 packages = ["human_pace"]
