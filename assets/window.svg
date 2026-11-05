@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="340" viewBox="0 0 720 340" font-family="-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif">
+<text x="56.0" y="26.0" font-size="15" fill="#57606a" text-anchor="start" font-weight="600">Suggested wait, same history, two algorithms</text>
+<text x="56.0" y="44.0" font-size="12" fill="#8b949e" text-anchor="start" font-weight="400">The percentile formula sits pinned at its 20s ceiling</text>
+<line x1="56.0" y1="294.0" x2="616.0" y2="294.0" stroke="#d0d7de" stroke-width="1"/>
+<text x="48.0" y="298.0" font-size="11" fill="#8b949e" text-anchor="end" font-weight="400">0s</text>
+<line x1="56.0" y1="233.5" x2="616.0" y2="233.5" stroke="#d0d7de" stroke-width="1"/>
+<text x="48.0" y="237.5" font-size="11" fill="#8b949e" text-anchor="end" font-weight="400">5s</text>
+<line x1="56.0" y1="173.0" x2="616.0" y2="173.0" stroke="#d0d7de" stroke-width="1"/>
+<text x="48.0" y="177.0" font-size="11" fill="#8b949e" text-anchor="end" font-weight="400">10s</text>
+<line x1="56.0" y1="112.5" x2="616.0" y2="112.5" stroke="#d0d7de" stroke-width="1"/>
+<text x="48.0" y="116.5" font-size="11" fill="#8b949e" text-anchor="end" font-weight="400">16s</text>
+<line x1="56.0" y1="52.0" x2="616.0" y2="52.0" stroke="#d0d7de" stroke-width="1"/>
+<text x="48.0" y="56.0" font-size="11" fill="#8b949e" text-anchor="end" font-weight="400">21s</text>
+<polyline points="56.0,118.1 67.7,154.7 79.3,63.7 91.0,63.5 102.7,63.5 114.3,63.5 126.0,63.5 137.7,63.5 149.3,63.5 161.0,63.5 172.7,63.5 184.3,63.5 196.0,63.5 207.7,63.5 219.3,63.5 231.0,63.5 242.7,63.5 254.3,63.5 266.0,63.5 277.7,63.5 289.3,63.5 301.0,63.5 312.7,63.5 324.3,63.5 336.0,63.5 347.7,63.5 359.3,63.5 371.0,63.5 382.7,63.5 394.3,63.5 406.0,63.5 417.7,63.5 429.3,63.5 441.0,63.5 452.7,63.5 464.3,63.5 476.0,63.5 487.7,63.5 499.3,63.5 511.0,63.5 522.7,63.5 534.3,63.5 546.0,63.5 557.7,63.5 569.3,63.5 581.0,63.5 592.7,63.5 604.3,63.5 616.0,63.5" fill="none" stroke="#cf222e" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+<polyline points="56.0,148.5 67.7,212.4 79.3,63.7 91.0,63.5 102.7,63.5 114.3,63.5 126.0,63.5 137.7,179.6 149.3,209.1 161.0,209.1 172.7,63.5 184.3,205.2 196.0,216.0 207.7,63.5 219.3,63.5 231.0,63.5 242.7,63.5 254.3,63.5 266.0,63.5 277.7,119.7 289.3,225.5 301.0,231.6 312.7,229.8 324.3,226.0 336.0,63.5 347.7,106.6 359.3,219.8 371.0,224.9 382.7,237.3 394.3,63.5 406.0,256.3 417.7,63.5 429.3,63.5 441.0,229.0 452.7,83.5 464.3,176.1 476.0,63.5 487.7,63.5 499.3,72.4 511.0,63.5 522.7,63.5 534.3,195.8 546.0,98.3 557.7,192.4 569.3,188.9 581.0,63.5 592.7,194.8 604.3,200.8 616.0,74.2" fill="none" stroke="#0969da" stroke-width="2.0" stroke-linejoin="round" stroke-linecap="round"/>
+<line x1="628.0" y1="70.0" x2="646.0" y2="70.0" stroke="#cf222e" stroke-width="2.0"/>
+<text x="650.0" y="74.0" font-size="11" fill="#57606a" text-anchor="start" font-weight="400">percentile</text>
+<line x1="628.0" y1="90.0" x2="646.0" y2="90.0" stroke="#0969da" stroke-width="2.0"/>
+<text x="650.0" y="94.0" font-size="11" fill="#57606a" text-anchor="start" font-weight="400">human-pace</text>
+<text x="336.0" y="332.0" font-size="11" fill="#8b949e" text-anchor="middle" font-weight="400">messages seen so far</text>
+</svg>
